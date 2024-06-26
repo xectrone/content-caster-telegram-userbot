@@ -1,10 +1,8 @@
 import os
 from dotenv import load_dotenv
-import asyncio
 import logging
 from datetime import datetime, timedelta
 from pyrogram import Client, filters
-from pyrogram.types import Message
 from pyrogram.enums.parse_mode import ParseMode
 
 
@@ -16,13 +14,13 @@ load_dotenv()
 
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
-PHONE_NO = os.getenv("PHONE_NO")
+SESSION_STRING = os.getenv("SESSION_STRING")
 
 app = Client(
     name="my_session",
-    api_id=API_ID, 
+    api_id=API_ID,
     api_hash=API_HASH, 
-    phone_number=PHONE_NO
+    session_string=SESSION_STRING,
     )
 
 @app.on_message(filters.command("start"))

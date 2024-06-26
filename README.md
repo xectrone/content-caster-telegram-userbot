@@ -30,7 +30,8 @@
 ### Prerequisites
 
 - **Python 3.7+**: Ensure you have Python installed on your machine. You can download it from [python.org](https://www.python.org/).
-- **Telegram API Credentials**: Obtain API credentials (API ID, API HASH, and phone number) from [Telegram's website](https://my.telegram.org/auth).
+- **Telegram API Credentials**: Obtain API credentials (API ID and API HASH) from [Telegram's website](https://my.telegram.org/auth).
+- **Session String**: Generate a session string using the [Session String Creator Userbot](https://github.com/xectrone/session-string-creator-telegram-userbot.git).
 
 ### 1. Clone the Repository
 
@@ -38,7 +39,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/xectrone/content-caster-telegram-userbot.git
-cd content-caster-userbot
+cd content-caster-telegram-userbot
 ```
 
 ### 2. Install Dependencies
@@ -51,13 +52,19 @@ pip install -r requirements.txt
 
 ### 3. Configuration
 
-Create a `.env` file in the root directory and add the following environment variables:
+Create a `.env` file in the root directory and add the following environment variables. You can use a text editor to create and edit this file.
 
 ```plaintext
 API_ID=your_api_id
 API_HASH=your_api_hash
-PHONE_NO=your_phone_number
+SESSION_STRING=your_session_string
 ```
+
+- **API_ID**: Your Telegram API ID.
+- **API_HASH**: Your Telegram API Hash.
+- **SESSION_STRING**: A session string obtained from the Session String Creator Userbot.
+
+To generate a session string, you can use the [Session String Creator Userbot](https://github.com/xectrone/session-string-creator-telegram-userbot.git). Follow the instructions in its README to generate your session string.
 
 ### 4. Running the Userbot
 
@@ -74,6 +81,14 @@ python main.py
 - `/start` - Start the userbot and receive a welcome message.
 - `/help` - Display available commands and usage instructions.
 - `/schedule <src_chat_id> <dest_chat_id> <start_message_id> <end_message_id> <start_time (YYYY-MM-DD-HH:MM:SS)> <interval in hrs>` - Schedule messages from `src_chat_id` to `dest_chat_id` starting from `start_message_id` to `end_message_id` at specified intervals.
+  
+  Example:
+  ```bash
+  /schedule 123456789 987654321 1 100 2024-06-30-10:00:00 1
+  ```
+  This command schedules messages from message ID 1 to 100 from chat ID `123456789` to chat ID `987654321`, starting on June 30, 2024, at 10:00 AM, with a 1-hour interval between messages.
+
+- `/info` - Reply to a message to get its message ID and chat ID.
 
 ## Contributing
 
