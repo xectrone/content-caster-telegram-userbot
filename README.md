@@ -38,7 +38,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/xectrone/content-caster-telegram-userbot.git
-cd content-caster-userbot
+cd content-caster-telegram-userbot
 ```
 
 ### 2. Install Dependencies
