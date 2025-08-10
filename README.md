@@ -1,4 +1,4 @@
-# Content Caster Userbot
+# Content Caster Telegram Userbot
 
 ![Python](https://img.shields.io/badge/python-3.7%2B-blue)
 ![Pyrogram](https://img.shields.io/badge/pyrogram-1.4.2-blue)
