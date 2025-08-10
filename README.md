@@ -58,11 +58,13 @@ Create a `.env` file in the root directory and add the following environment var
 API_ID=your_api_id
 API_HASH=your_api_hash
 SESSION_STRING=your_session_string
+ADMIN_IDS=123456789,987654321
 ```
 
 - **API_ID**: Your Telegram API ID.
 - **API_HASH**: Your Telegram API Hash.
 - **SESSION_STRING**: A session string obtained from the Session String Creator Userbot.
+- **ADMIN_IDS**: Comma-separated list of Telegram user IDs who are authorized to use the schedule command.
 
 To generate a session string, you can use the [Session String Creator Userbot](https://github.com/xectrone/session-string-creator-telegram-userbot.git). Follow the instructions in its README to generate your session string.
 
@@ -80,15 +82,19 @@ python main.py
 
 - `/start` - Start the userbot and receive a welcome message.
 - `/help` - Display available commands and usage instructions.
-- `/schedule <src_chat_id> <dest_chat_id> <start_message_id> <end_message_id> <start_time (YYYY-MM-DD-HH:MM:SS)> <interval in hrs>` - Schedule messages from `src_chat_id` to `dest_chat_id` starting from `start_message_id` to `end_message_id` at specified intervals.
+- `/schedule <src_chat_id> <dest_chat_id> <start_message_id> <end_message_id> <start_time (YYYY-MM-DD-HH:MM:SS)> <interval in hrs> [custom_message]` - Schedule messages from `src_chat_id` to `dest_chat_id` starting from `start_message_id` to `end_message_id` at specified intervals. If `custom_message` is provided, it will replace the caption for media messages.
   
   Example:
   ```bash
-  /schedule 123456789 987654321 1 100 2024-06-30-10:00:00 1
+  /schedule 123456789 987654321 1 100 2024-06-30-10:00:00 1 "Join our channel @YourChannel"
   ```
-  This command schedules messages from message ID 1 to 100 from chat ID `123456789` to chat ID `987654321`, starting on June 30, 2024, at 10:00 AM, with a 1-hour interval between messages.
+  This command schedules messages from message ID 1 to 100 from chat ID `123456789` to chat ID `987654321`, starting on June 30, 2024, at 10:00 AM, with a 1-hour interval between messages, and replaces media captions with the custom message.
+  
+  Note: The schedule and unban_all commands can only be used by users whose IDs are listed in the ADMIN_IDS environment variable.
 
 - `/info` - Reply to a message to get its message ID and chat ID.
+
+- `/unban_all` - Unban all users who are currently banned in the group. This command can only be used by authorized administrators listed in the ADMIN_IDS environment variable.
 
 ## Contributing
 
