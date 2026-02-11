@@ -94,8 +94,6 @@ python main.py
 
 - `/info` - Reply to a message to get its message ID and chat ID.
 
-- `/unban_all` - Unban all users who are currently banned in the group. This command can only be used by authorized administrators listed in the ADMIN_IDS environment variable.
-
 ## Contributing
 
 Contributions are welcome! If you have suggestions or want to contribute improvements, please fork the repository and submit a pull request. Feel free to open issues for any bugs or feature requests.
